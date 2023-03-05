@@ -1,6 +1,6 @@
 {
   "name": "@thecuddlybear/ipaconverter",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Converts string into ipa, based on a phonetic dictionary",
   "exports": {
     ".": {
@@ -50,12 +50,12 @@
     "ipa",
     "conlang"
   ],
-  "author": "Snyk Labs",
-  "license": "MIT",
+  "author": "TheCuddlyBear",
+  "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/snyk-labs/modern-npm-package/issues"
+    "url": "https://github.com/TheCuddlyBear/ipaconverter/issues"
   },
-  "homepage": "https://github.com/snyk-labs/modern-npm-package#readme",
+  "homepage": "https://github.com/TheCuddlyBear/ipaconverter/blob/main/README.md",
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^9.1.1",
