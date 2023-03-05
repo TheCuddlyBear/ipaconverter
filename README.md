@@ -1,8 +1,38 @@
-# modern-npm-package
+# IPA Converter
 
-An npm package for demonstration purposes using TypeScript to build for both the ECMAScript Module format (i.e. ESM or ES Module) and CommonJS Module format (CJS). It can be used in Node.js and browser applications.
+This npm package contains functions to covert strings to IPA, based on an input script dictionary. The main use for this package is in conlanging software, where the user can make their own script and convert their words to IPA. The package supports: alphabets, syllabaries and abugida's (and impure abjads with vowel diacritics using the abugida system).
 
-## Get Started
+## Installation
+
+```bash
+npm install @thecuddlybear/ipaconverter
+```
+
+## Usage
+  
+```javascript
+import { IPAFromAlphabet, IPAFromSyllabary, IPAFromAbugida } from '@thecuddlybear/ipaconverter';
+
+// Converting an own-defined alphabet to ipa
+const alphabet = [["α", "a"], ["β", "b"], ["γ", "g"], ["δ", "d"], ["ε", "e"], ["ζ", "z"], ["η", "h"], ["θ", "θ"], ["ι", "i"], ["κ", "k"], ["λ", "l"], ["μ", "m"], ["ν", "n"], ["ξ", "x"], ["ο", "o"], ["π", "p"], ["ρ", "r"], ["σ", "s"], ["τ", "t"], ["υ", "u"], ["φ", "f"], ["χ", "χ"], ["ψ", "ψ"], ["ω", "o"]];
+
+var ipaAlphabet = IPAFromAlphabet("βετα χι", alphabet); // Returns beta χi
+
+// Converting an own-defined syllabary to ipa, works on the same principle as the alphabet.
+const syllabary = [["か", "ka"], ["け", "ke"], ["き", "ki"], ["こ", "ko"], ["く", "ku"], ["さ", "sa"], ["せ", "se"], ["し", "shi"], ["そ", "so"], ["す", "su"], ["た", "ta"], ["て", "te"], ["ち", "chi"], ["と", "to"], ["つ", "tsu"], ["な", "na"], ["ね", "ne"], ["に", "ni"], ["の", "no"], ["ぬ", "nu"], ["は", "ha"], ["へ", "he"], ["ひ", "hi"], ["ほ", "ho"], ["ふ", "fu"], ["ま", "ma"], ["め", "me"], ["み", "mi"], ["も", "mo"], ["む", "mu"], ["や", "ya"], ["よ", "yo"], ["ゆ", "yu"], ["ら", "ra"], ["れ", "re"], ["り", "ri"], ["ろ", "ro"], ["る", "ru"], ["わ", "wa"], ["を", "wo"], ["ん", "n"]];
+
+const ipaSyllabary = IPAFromSyllabary("かへに", syllabary); // Returns kehi
+
+// Converting an own-defined abugida to ipa, this works a little bit different, as it requires the vowels to be specified separately from the consonant with a placeholder.
+// The placeholder CANNOT contain any regex characters, it is wise to use characters like ∈
+const placeholder = "∈"
+const vowelArray = [["∈ा", "a"], ["∈ि", "i"], ["∈ी", "i"], ["∈ु", "u"], ["∈ू", "u"], ["∈े", "e"], ["∈ै", "ai"], ["∈ो", "o"], ["∈ौ", "au"], ["∈ं", "am"], ["∈ः", "ah"], ["∈ँ", "an"]];
+const consonantArray = [["क​", "k"], ["ख​", "kh"], ["ग​", "g"], ["घ​", "gh"], ["ङ​", "ṅ"], ["च​", "c"], ["छ​", "ch"], ["ज​", "j"], ["झ​", "jh"], ["ञ​", "ñ"], ["ट​", "ṭ"], ["ठ​", "ṭh"], ["ड​", "ḍ"], ["ढ​", "ḍh"], ["ण​", "ṇ"], ["त​", "t"], ["थ​", "th"], ["द​", "d"], ["ध​", "dh"], ["न​", "n"], ["प​", "p"], ["फ​", "ph"], ["ब​", "b"], ["भ​", "bh"], ["म​", "m"], ["य​", "y"], ["र​", "r"], ["ल​", "l"], ["व​", "v"], ["श​", "ś"], ["ष​", "ṣ"], ["स​", "s"], ["ह​", "h"], ["क्ष​", "kṣ"], ["त्र​", "tr"], ["ज्ञ​", "jñ"]];
+
+const ipaAbugida = IPAFromAbugida("कालि", consonantArray, vowelArray, placeholder); // Returns kali
+```
+
+## Get Started with development
 
 1. Run `npm install` in your terminal
 1. Then run `npm run build`
