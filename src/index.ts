@@ -29,7 +29,7 @@ export function IPAFromAbugida(input: string, consonantArray: Array<[string, str
   var comboArray: Array<[string, string]> = [];
   var regexStr: string = "(";
   var regex: RegExp;
-  var length: number = consonantArray.length * vowelArray.length;
+  var length: number = consonantArray.length * vowelArray.length + consonantArray.length;
   var index: number = 0;
 
   consonantArray.forEach((consonant: [string, string]) => {
@@ -37,6 +37,7 @@ export function IPAFromAbugida(input: string, consonantArray: Array<[string, str
       var vow: string = vowel[0].replace(new RegExp(placeholder), consonant[0]);
       comboArray.push([vow, consonant[1] + vowel[1]]);
     });
+    comboArray.push([consonant[0], consonant[1]]);
   }
   );
 

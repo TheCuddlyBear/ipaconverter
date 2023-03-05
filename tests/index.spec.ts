@@ -70,4 +70,14 @@ describe('IPAFromAbugida Function', () => {
     const actual = IPAFromAbugida(input, consonantArray, vowelArray, placeholder);
     assert.equal(actual, expected);
   });
+
+  it('should return the correct IPA only consonants', () => {
+    const expected = 'kg';
+    const input = "कग"
+    const consonantArray: Array<[string, string]> = [["क", "k"], ["ग", "g"]];
+    const vowelArray: Array<[string, string]> = [["5ा", "a"], ["5ु", "u"]];
+    const placeholder = "5"
+    const actual = IPAFromAbugida(input, consonantArray, vowelArray, placeholder);
+    assert.equal(actual, expected);
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "@thecuddlybear/ipaconverter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts string into ipa, based on a phonetic dictionary",
   "exports": {
     ".": {
@@ -20,7 +20,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "clean": "rm -rf ./lib",
+    "clean": "",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",

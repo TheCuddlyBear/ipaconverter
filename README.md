@@ -23,7 +23,9 @@ const syllabary = [["か", "ka"], ["け", "ke"], ["き", "ki"], ["こ", "ko"], [
 
 const ipaSyllabary = IPAFromSyllabary("かへに", syllabary); // Returns kehi
 
-// Converting an own-defined abugida to ipa, this works a little bit different, as it requires the vowels to be specified separately from the consonant with a placeholder.
+// Converting an own-defined abugida to ipa, this works a little bit different, 
+// as it requires the vowels to be specified separately from the consonant with a placeholder.
+// This is not foolproof!! It isn't the best optimised way of doing this, so the longer the input string, the longer it will take to convert.
 // The placeholder CANNOT contain any regex characters, it is wise to use characters like ∈
 const placeholder = "∈"
 const vowelArray = [["∈ा", "a"], ["∈ि", "i"], ["∈ी", "i"], ["∈ु", "u"], ["∈ू", "u"], ["∈े", "e"], ["∈ै", "ai"], ["∈ो", "o"], ["∈ौ", "au"], ["∈ं", "am"], ["∈ः", "ah"], ["∈ँ", "an"]];
